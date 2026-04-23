@@ -6,40 +6,86 @@
       body {
         font-family: Arial;
         text-align: center;
-        background-color: #f5f5f5;
+        background-color: #f8f8f8;
       }
       header {
-        background-color: #333;
+        background-color: #d32f2f;
         color: white;
-        padding: 15px;
+        padding: 20px;
+      }
+      nav {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: white;
+        margin: 10px;
+        text-decoration: none;
       }
       section {
-        margin: 20px;
+        padding: 20px;
       }
       .card {
         background: white;
         padding: 15px;
-        margin: 10px;
+        margin: 15px;
         border-radius: 10px;
         box-shadow: 0 0 10px #ccc;
+      }
+      footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      .btn {
+        background: green;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Welcome to AMS STOVE CENTRE</h1>
-      <p>Add your product details here</p>
+      <h1>AMS STOVE CENTRE</h1>
+      <p>Gas Stoves | Burners | Repairs | Spare Parts</p>
     </header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <section>
       <div class="card">
-        <h2>Our Products</h2>
-        <p>Stove</p>
+        <h2>Welcome</h2>
+        <p>We provide high-quality gas stoves, burners, and repair services at affordable prices.</p>
       </div>
+    </section>
+    <section id="services">
+      <div class="card">
+        <h2>Our Services</h2>
+        <ul>
+          <li>Gas Stove Sales</li>
+          <li>Stove Repair & Service</li>
+          <li>Spare Parts Available</li>
+          <li>Home Service</li>
+        </ul>
+      </div>
+    </section>
+    <section id="contact">
       <div class="card">
         <h2>Contact Us</h2>
         <p>Phone: 9496506272</p>
-        <p>Location: Kannamkode,Adoor,Pathanamthitta dt.-691523</p>
+        <p>Location: Kannamkode,Adoor,Pathanamthitta dt.-691523,Kerala</p>
+        <br>
+        <a class="btn" href="https://wa.me/919496506272">Chat on Whatsapp</a>
       </div>
     </section>
+    <footer>
+      <p>2026 Stove Centre | All Rights Reserved</p>
+    </footer>
   </body>
 </html>
