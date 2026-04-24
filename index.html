@@ -133,6 +133,39 @@
         </div>
       </div>
     </section>
+    <section id="gallery">
+      <h2 style="text-align:center;">Our Work</h2>
+      <div class="slider">
+        <div class="slides">
+          <img src="image1.jpg">
+          <img src="image2.jpg">
+          <img src="image3.jpg">
+        </div>
+      </div>
+    <style>
+      .slider {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .slides {
+        display: flex;
+        width: 300%;
+        animation: slide 12s infinite;
+      }
+      .slides img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      @keyframes slide {
+        0% {margin-left: 0;}
+        33% {margin-left:-100%;}
+        66% {margin-left: -200%}
+        100% {margin-left: 0;}
+      }
+    </style>
     <section id="contact">
       <div class="card">
         <h2>Contact Us</h2>
