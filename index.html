@@ -134,35 +134,45 @@
       </div>
     </section>
     <section id="gallery">
-      <h2 style="text-align:center;">Our Work</h2>
+      <h2 style="text-align:center;">Our Work & Products</h2>
       <div class="slider">
         <div class="slides">
-          <img src="image1.jpeg">
-          <img src="image2.jpeg">
-          <img src="image3.jpeg">
+          <img src="shop.jpeg">
+          <img src="products.jpeg">
+          <img src="setup.jpeg">
+          <img src="parts.jpeg">
+          <img src="banner.jpeg">
         </div>
       </div>
+    </section>
     <style>
       .slider {
         width: 90%;
-        margin: auto;
+        margin: 20px auto;
         overflow: hidden;
-        border-radius: 12px;
+        border-radius: 15px;
       }
       .slides {
         display: flex;
-        width: 300%;
-        animation: slide 12s infinite;
+        width: 500%;
+        animation: slide 15s infinite;
       }
       .slides img {
         width: 100%;
-        height: 300px;
+        height: 350px;
         object-fit: cover;
+        filter: brightness(0.85);
+        transition: 0.5s;
+      }
+      .slides img:hover {
+        filter: brightness(1);
       }
       @keyframes slide {
         0% {margin-left: 0;}
-        33% {margin-left:-100%;}
-        66% {margin-left: -200%}
+        20% {margin-left:-100%;}
+        40% {margin-left: -200%;}
+        60% {margin-left: -300%;}
+        80% {margin-left: -400%;}
         100% {margin-left: 0;}
       }
     </style>
