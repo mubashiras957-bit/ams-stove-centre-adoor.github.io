@@ -10,6 +10,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+
 body{
 font-family:'Poppins',sans-serif;
 background:#0f0f0f;
@@ -17,12 +18,31 @@ color:#fff;
 overflow-x:hidden;
 }
 
+/* 🔥 Animated Background */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:radial-gradient(circle at 20% 20%,#ff3d00,transparent 40%),
+radial-gradient(circle at 80% 80%,#ff9100,transparent 40%);
+animation:moveBg 10s linear infinite alternate;
+z-index:-1;
+opacity:0.15;
+}
+
+@keyframes moveBg{
+0%{transform:translate(0,0);}
+100%{transform:translate(-10%, -10%);}
+}
+
 /* NAV */
 nav{
 position:fixed;
-top:0;width:100%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+top:0;
+width:100%;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(15px);
 display:flex;
 justify-content:center;
 padding:15px;
@@ -31,7 +51,7 @@ z-index:1000;
 
 nav a{
 color:#fff;
-margin:0 15px;
+margin:0 20px;
 text-decoration:none;
 font-weight:500;
 position:relative;
@@ -42,7 +62,7 @@ content:'';
 position:absolute;
 width:0;
 height:2px;
-background:#ff3d00;
+background:#ff9100;
 left:0;
 bottom:-5px;
 transition:0.3s;
@@ -57,13 +77,21 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-url('shop.jpeg') center/cover no-repeat;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:radial-gradient(circle,#ff3d00,transparent 70%);
+filter:blur(80px);
+z-index:-1;
 }
 
 .hero h1{
-font-size:48px;
+font-size:56px;
 font-weight:800;
 background:linear-gradient(90deg,#ff3d00,#ff9100);
 -webkit-background-clip:text;
@@ -77,51 +105,71 @@ color:#ccc;
 }
 
 .btn{
-margin-top:20px;
+margin-top:25px;
 display:inline-block;
-padding:15px 30px;
+padding:16px 35px;
 border-radius:50px;
 background:linear-gradient(90deg,#25D366,#00c853);
 color:#fff;
 text-decoration:none;
 font-weight:600;
-box-shadow:0 0 20px rgba(37,211,102,0.5);
+box-shadow:0 0 25px rgba(37,211,102,0.5);
 transition:0.3s;
 }
 
 .btn:hover{
-transform:translateY(-3px) scale(1.05);
-box-shadow:0 0 30px rgba(37,211,102,0.8);
+transform:translateY(-4px) scale(1.07);
+box-shadow:0 0 40px rgba(37,211,102,0.9);
 }
 
 /* SECTIONS */
-section{padding:80px 20px;max-width:1100px;margin:auto;}
+section{
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
+}
 
 h2{
 text-align:center;
-font-size:32px;
-margin-bottom:40px;
+font-size:36px;
+margin-bottom:50px;
 }
 
-/* GLASS CARD */
+/* GLASS CARDS */
 .card{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:20px;
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:25px;
 transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
+transform:translateX(-100%);
+transition:0.6s;
+}
+
+.card:hover::before{
+transform:translateX(100%);
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 20px 40px rgba(0,0,0,0.5);
+transform:translateY(-12px) scale(1.04);
+box-shadow:0 20px 50px rgba(0,0,0,0.6);
 }
 
 /* GRID */
 .grid{
 display:grid;
-gap:25px;
+gap:30px;
 }
 
 @media(min-width:768px){
@@ -129,31 +177,36 @@ gap:25px;
 .grid-2{grid-template-columns:repeat(2,1fr);}
 }
 
-/* GLOW TEXT */
+/* TEXT EFFECT */
 .glow{
 color:#ff9100;
-text-shadow:0 0 10px #ff9100;
+text-shadow:0 0 15px #ff9100;
 }
 
 /* FLOAT BUTTON */
 .whatsapp{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:25px;
+right:25px;
 background:#25D366;
-padding:18px;
+padding:20px;
 border-radius:50%;
 font-size:22px;
 text-decoration:none;
 color:#fff;
-box-shadow:0 0 20px #25D366;
+box-shadow:0 0 25px #25D366;
+transition:0.3s;
 }
 
-/* FADE ANIMATION */
+.whatsapp:hover{
+transform:scale(1.1);
+}
+
+/* SCROLL ANIMATION */
 .fade{
 opacity:0;
-transform:translateY(40px);
-transition:0.8s;
+transform:translateY(50px);
+transition:1s;
 }
 
 .fade.show{
@@ -161,11 +214,22 @@ opacity:1;
 transform:translateY(0);
 }
 
+/* CTA STRIP */
+.cta{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(135deg,#ff3d00,#ff9100);
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* FOOTER */
 footer{
 text-align:center;
-padding:20px;
+padding:30px;
 background:#000;
 color:#aaa;
+margin-top:50px;
 }
 </style>
 </head>
@@ -182,11 +246,8 @@ color:#aaa;
 <div class="hero">
 <div>
 <h1>AMS STOVE CENTRE</h1>
-<p>Premium Gas Stove Repair Service in Adoor</p>
-
-<a class="btn" href="https://wa.me/919496506272">
-Book Service Now
-</a>
+<p>Premium Gas Stove Repair in Adoor</p>
+<a class="btn" href="https://wa.me/919496506272">Book Service</a>
 </div>
 </div>
 
@@ -199,7 +260,6 @@ Book Service Now
 <div class="card fade">🔧 Repair & Service</div>
 <div class="card fade">⚙️ Spare Parts</div>
 </div>
-
 </section>
 
 <!-- WHY -->
@@ -207,17 +267,17 @@ Book Service Now
 <h2 class="glow">Why Choose Us</h2>
 
 <div class="grid grid-2">
-<div class="card fade">✔️ Fast Service</div>
-<div class="card fade">💰 Affordable Pricing</div>
+<div class="card fade">✔️ Fast Same-Day Service</div>
+<div class="card fade">💰 Honest Pricing</div>
 </div>
 </section>
 
 <!-- CTA -->
-<section style="text-align:center;">
-<h2>Need Immediate Repair?</h2>
-<a class="btn" href="https://wa.me/919496506272">
-Contact on WhatsApp
-</a>
+<section>
+<div class="cta fade">
+<h2>Need Instant Stove Repair?</h2>
+<a class="btn" href="https://wa.me/919496506272">Chat on WhatsApp</a>
+</div>
 </section>
 
 <!-- CONTACT -->
@@ -242,7 +302,7 @@ const faders = document.querySelectorAll('.fade');
 window.addEventListener('scroll',()=>{
 faders.forEach(el=>{
 const top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
+if(top < window.innerHeight - 80){
 el.classList.add('show');
 }
 });
