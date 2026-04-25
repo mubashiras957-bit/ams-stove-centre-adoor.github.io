@@ -3,72 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AMS Stove Centre Adoor</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
 font-family:'Poppins',sans-serif;
-background:#0f0f0f;
+background:#0b0b0b;
 color:#fff;
 overflow-x:hidden;
+cursor:none;
 }
 
-/* 🔥 Animated Background */
-body::before{
-content:"";
+/* 🔥 Cursor */
+.cursor{
 position:fixed;
-width:200%;
-height:200%;
-background:radial-gradient(circle at 20% 20%,#ff3d00,transparent 40%),
-radial-gradient(circle at 80% 80%,#ff9100,transparent 40%);
-animation:moveBg 10s linear infinite alternate;
-z-index:-1;
-opacity:0.15;
+width:20px;height:20px;
+border-radius:50%;
+background:#ff9100;
+pointer-events:none;
+transform:translate(-50%,-50%);
+mix-blend-mode:difference;
+z-index:9999;
 }
 
-@keyframes moveBg{
-0%{transform:translate(0,0);}
-100%{transform:translate(-10%, -10%);}
+/* Progress bar */
+.progress{
+position:fixed;
+top:0;left:0;
+height:4px;
+background:#ff9100;
+width:0%;
+z-index:999;
 }
 
 /* NAV */
 nav{
 position:fixed;
-top:0;
-width:100%;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(15px);
+top:0;width:100%;
 display:flex;
 justify-content:center;
 padding:15px;
+transition:0.3s;
 z-index:1000;
 }
 
+nav.scrolled{
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+}
+
 nav a{
-color:#fff;
 margin:0 20px;
+color:#fff;
 text-decoration:none;
-font-weight:500;
-position:relative;
 }
-
-nav a::after{
-content:'';
-position:absolute;
-width:0;
-height:2px;
-background:#ff9100;
-left:0;
-bottom:-5px;
-transition:0.3s;
-}
-
-nav a:hover::after{width:100%;}
 
 /* HERO */
 .hero{
@@ -80,161 +71,112 @@ text-align:center;
 position:relative;
 }
 
-.hero::after{
+.hero::before{
 content:'';
 position:absolute;
-width:300px;
-height:300px;
-background:radial-gradient(circle,#ff3d00,transparent 70%);
-filter:blur(80px);
-z-index:-1;
+width:400px;height:400px;
+background:radial-gradient(circle,#ff3d00,transparent);
+filter:blur(120px);
+animation:float 6s infinite alternate;
+}
+
+@keyframes float{
+0%{transform:translateY(-20px);}
+100%{transform:translateY(20px);}
 }
 
 .hero h1{
-font-size:56px;
+font-size:60px;
 font-weight:800;
 background:linear-gradient(90deg,#ff3d00,#ff9100);
 -webkit-background-clip:text;
 color:transparent;
 }
 
-.hero p{
-margin-top:15px;
-font-size:18px;
-color:#ccc;
-}
-
 .btn{
-margin-top:25px;
-display:inline-block;
-padding:16px 35px;
+margin-top:20px;
+padding:15px 30px;
 border-radius:50px;
-background:linear-gradient(90deg,#25D366,#00c853);
+background:#25D366;
 color:#fff;
 text-decoration:none;
-font-weight:600;
-box-shadow:0 0 25px rgba(37,211,102,0.5);
+display:inline-block;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:translateY(-4px) scale(1.07);
-box-shadow:0 0 40px rgba(37,211,102,0.9);
+transform:scale(1.1);
 }
 
-/* SECTIONS */
+/* Sections */
 section{
 padding:100px 20px;
 max-width:1100px;
 margin:auto;
 }
 
-h2{
-text-align:center;
-font-size:36px;
-margin-bottom:50px;
-}
-
-/* GLASS CARDS */
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(20px);
-padding:30px;
-border-radius:25px;
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.card::before{
-content:'';
-position:absolute;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
-transform:translateX(-100%);
-transition:0.6s;
-}
-
-.card:hover::before{
-transform:translateX(100%);
-}
-
-.card:hover{
-transform:translateY(-12px) scale(1.04);
-box-shadow:0 20px 50px rgba(0,0,0,0.6);
-}
-
-/* GRID */
 .grid{
 display:grid;
-gap:30px;
+gap:25px;
 }
 
 @media(min-width:768px){
 .grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-2{grid-template-columns:repeat(2,1fr);}
 }
 
-/* TEXT EFFECT */
-.glow{
+/* Cards */
+.card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+transition:0.3s;
+transform:translateY(40px);
+opacity:0;
+}
+
+.card.show{
+transform:translateY(0);
+opacity:1;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+/* Counter */
+.counter{
+font-size:40px;
 color:#ff9100;
-text-shadow:0 0 15px #ff9100;
 }
 
-/* FLOAT BUTTON */
+/* WhatsApp */
 .whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 background:#25D366;
 padding:20px;
 border-radius:50%;
-font-size:22px;
-text-decoration:none;
-color:#fff;
-box-shadow:0 0 25px #25D366;
-transition:0.3s;
 }
 
-.whatsapp:hover{
-transform:scale(1.1);
+/* Popup */
+.popup{
+position:fixed;
+bottom:100px;
+right:20px;
+background:#111;
+padding:15px;
+border-radius:10px;
+display:none;
 }
 
-/* SCROLL ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* CTA STRIP */
-.cta{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(135deg,#ff3d00,#ff9100);
-border-radius:20px;
-box-shadow:0 20px 50px rgba(0,0,0,0.5);
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:30px;
-background:#000;
-color:#aaa;
-margin-top:50px;
-}
 </style>
 </head>
 
 <body>
+
+<div class="cursor"></div>
+<div class="progress"></div>
 
 <nav>
 <a href="#">Home</a>
@@ -246,67 +188,89 @@ margin-top:50px;
 <div class="hero">
 <div>
 <h1>AMS STOVE CENTRE</h1>
-<p>Premium Gas Stove Repair in Adoor</p>
-<a class="btn" href="https://wa.me/919496506272">Book Service</a>
+<p>Premium Stove Repair in Adoor</p>
+<a class="btn">Book Service</a>
 </div>
 </div>
 
 <!-- SERVICES -->
 <section id="services">
-<h2 class="glow">Our Services</h2>
+<h2>Services</h2>
 
 <div class="grid grid-3">
-<div class="card fade">🔥 Stove Sales</div>
-<div class="card fade">🔧 Repair & Service</div>
-<div class="card fade">⚙️ Spare Parts</div>
+<div class="card">🔥 Sales</div>
+<div class="card">🔧 Repair</div>
+<div class="card">⚙️ Parts</div>
 </div>
 </section>
 
-<!-- WHY -->
+<!-- STATS -->
 <section>
-<h2 class="glow">Why Choose Us</h2>
+<h2>Our Impact</h2>
 
-<div class="grid grid-2">
-<div class="card fade">✔️ Fast Same-Day Service</div>
-<div class="card fade">💰 Honest Pricing</div>
-</div>
-</section>
-
-<!-- CTA -->
-<section>
-<div class="cta fade">
-<h2>Need Instant Stove Repair?</h2>
-<a class="btn" href="https://wa.me/919496506272">Chat on WhatsApp</a>
+<div class="grid grid-3">
+<div class="card"><div class="counter" data-target="500">0</div>Repairs</div>
+<div class="card"><div class="counter" data-target="100">0</div>Customers</div>
+<div class="card"><div class="counter" data-target="5">0</div>Years</div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2 class="glow">Contact</h2>
-
-<div class="card fade" style="text-align:center;">
-<p>📞 9496506272</p>
-<p>📍 Adoor, Kerala</p>
-</div>
+<h2>Contact</h2>
+<div class="card">📞 9496506272</div>
 </section>
 
-<footer>
-© 2026 AMS Stove Centre
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919496506272">💬</a>
+<div class="popup">Need help? Chat with us!</div>
+<a class="whatsapp">💬</a>
 
 <script>
-const faders = document.querySelectorAll('.fade');
+/* Cursor */
+const cursor=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+cursor.style.top=e.clientY+'px';
+cursor.style.left=e.clientX+'px';
+});
 
+/* Scroll progress */
 window.addEventListener('scroll',()=>{
-faders.forEach(el=>{
-const top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 80){
+let sc=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+document.querySelector('.progress').style.width=sc+'%';
+});
+
+/* Nav blur */
+window.addEventListener('scroll',()=>{
+document.querySelector('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+/* Reveal */
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
 el.classList.add('show');
 }
 });
 });
+
+/* Counter */
+document.querySelectorAll('.counter').forEach(counter=>{
+let update=()=>{
+let target=+counter.getAttribute('data-target');
+let count=+counter.innerText;
+let inc=target/100;
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}
+};
+update();
+});
+
+/* Popup */
+setTimeout(()=>{
+document.querySelector('.popup').style.display='block';
+},5000);
 </script>
 
 </body>
