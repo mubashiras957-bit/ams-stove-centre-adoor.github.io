@@ -147,9 +147,30 @@ h2 {
         text-align: center;
         padding: 15px;
       }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
     </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "AMS Stove Centre Adoor",
+        "telephone": "+919496506272",
+        "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Adoor",
+        "addressRegion": "Kerala",
+        "addressCountry": "India"
+      },
+        "areaServed": "Adoor",
+        "serviceType": "Gas Stove Repair"
+      }
+    </script>
   </head>
-  <body>
+  <body id="top">
     <header>
       <h1>🔥 AMS STOVE CENTRE ADOOR</h1>
       <p>Gas Stoves | Burners | Repairs | Spare Parts | Home Service Available</p>
@@ -158,7 +179,7 @@ h2 {
       ✔️ Trusted in Adoor | 🚚 Home Service Available | ⭐ 100+ Happy Customers
     </div>
     <nav>
-      <a href="#">Home</a>
+      <a href="#top">Home</a>
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
       <a href="#contact">Contact</a>
@@ -171,7 +192,7 @@ h2 {
         <p>✔️ Affordable Pricing &nbsp;&nbsp; ✔️ Experienced Service &nbsp;&nbsp; ✔️ Quick Response</p>
 
         <a class="btn" href="https://wa.me/919496506272?text=Hello%20AMS%20Stove%20Centre,%20I%20want%20to%20book%20a%20service.%0AName:%20%0APhone:%20%0AProblem:%20" target="_blank">
-        📲 Book Service on WhatsApp
+        🔥 Get Instant Stove Repair (WhatsApp Now)
         </a>
 
         <br><br>
@@ -197,7 +218,7 @@ h2 {
     </section>
     <section id="services">
       <h2 style="text-align:center;">Our Services</h2>
-      <div class="grid">
+      <div class="grid grid-3">
         <div class="card">
           <h3>🔥 Gas Stove Sales</h3>
           <p>Quality stoves at affordable prices.</p>
@@ -218,7 +239,7 @@ h2 {
     </section>
     <section id="why">
       <h2 style="text-align:center;">Why Choose Us</h2>
-      <div class="grid">
+      <div class="grid grid-2">
         <div class="card">
           <h3>✔️ Experienced Service</h3>
           <p>Years of trusted service in Adoor.</p>
@@ -255,7 +276,7 @@ h2 {
       <h2 style="text-align:center;">Our Work & Products</h2>
       <div class="slider">
         <div class="slides">
-          <img src="shop.jpeg" alt="AMS Stove Centre shop in Adoor">
+          <img src="shop.jpeg" alt="AMS Stove Centre shop in Adoor Pathanamthitta Kerala">
           <img src="products.jpeg" alt="Gas stove products and burners in AMS Stove Centre Adoor">
           <img src="setup.jpeg" alt="Gas stove repair service setup in AMS Stove Centre Adoor">
           <img src="parts.jpeg" alt="Stove spare parts available in AMS Stove Centre Adoor">
@@ -287,12 +308,12 @@ h2 {
         filter: brightness(1);
       }
       @keyframes slide {
-        0% {margin-left: 0;}
-        20% {margin-left:-100%;}
-        40% {margin-left: -200%;}
-        60% {margin-left: -300%;}
-        80% {margin-left: -400%;}
-        100% {margin-left: 0;}
+        0%, 15% { margin-left: 0; }
+        20%, 35% { margin-left: -100%; }
+        40%, 55% { margin-left: -200%; }
+        60%, 75% { margin-left: -300%; }
+        80%, 95% { margin-left: -400%; }
+        100% { margin-left: 0; }
       }
     </style>
     <section>
