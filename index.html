@@ -83,6 +83,8 @@
         margin: 15px 0;
         border-radius: 12px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        opacity: 0;
+        transform: 0.5s ease;
       }
       .grid {
         display: grid;
@@ -116,10 +118,6 @@
           padding: 50px 20px;
       }
 
-      .card {
-          transition: transform 0.2s;
-      }
-
       .card:hover {
           transform: translateY(-5px);
       }
@@ -142,9 +140,7 @@
         font-weight: 700;
         margin-bottom: 15px;
       }
-      .card {
-        transition: all 0.2s ease;
-      }
+      
       .card:hover {
         transform: translateY(-6px);
       }
@@ -424,5 +420,19 @@
      target="_blank">
      💬
     </a>
+    <script>
+      const cards=document.querySelectorAll('.card');
+      window.addEventListener('scroll', () => {
+        cards.forEach(card => {
+          const top=
+      card.getBoundingClientRect().top;
+          if(top < window.innerHeight - 50) {
+            card.style.opacity = 1;
+            card.style.transform = 'translateY(0)';
+          }
+        });
+      });
+    </script>
+    </script>
   </body>
 </html>
