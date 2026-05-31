@@ -179,6 +179,39 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         z-index: 999;
       }
+      .slider {
+        width: 90%;
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+      .slides {
+        display: flex;
+        animation: slide 15s infinite;
+        max-width: 900px;
+        width: 500%;
+      }
+      .slides img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        background: #000;
+        filter: brightness(0.85);
+        transition: 0.5s;
+        flex: 0 0 100%;
+        display: block;
+      }
+      .slides img:hover {
+        filter: brightness(1);
+      }
+      @keyframes slide {
+        0%, 15% { transform: translateX(0%); }
+        20%, 35% { transform: translateX(-100%); }
+        40%, 55% { transform: translateX(-200%); }
+        60%, 75% { transform: translateX(-300%); }
+        80%, 95% { transform: translateX(-400%); }
+        100% { transform: translateX(0%); }
+      }
     </style>
     <script type="application/ld+json">
       {
@@ -232,7 +265,7 @@
         </p>
     </header>
     <div style="background:#fff; padding:10px; text-align:center; font-size:14px; border-bottom:1px solid #eee;">
-      ✔️ Trusted Across Adoor & Nearby Areas | 🚚 Home Service Available | ⭐ 100+ Happy Customers
+      ✔️ Trusted Across Adoor & Nearby Areas | 🚚 Home Service Available | ⭐ Thousands of Customers Served Over the Years
     </div>
     <nav>
       <a href="#top">Home</a>
@@ -468,53 +501,27 @@
         </div>
       </div>
     </section>
-    <style>
-      .slider {
-        width: 90%;
-        margin: 20px auto;
-        overflow: hidden;
-        border-radius: 15px;
-      }
-      .slides {
-        display: flex;
-        animation: slide 15s infinite;
-        max-width: 900px;
-        width: 500%;
-      }
-      .slides img {
-        width: 100%;
-        max-height: 400px;
-        object-fit: cover;
-        background: #000;
-        filter: brightness(0.85);
-        transition: 0.5s;
-        flex: 0 0 100%;
-        display: block;
-      }
-      .slides img:hover {
-        filter: brightness(1);
-      }
-      @keyframes slide {
-        0%, 15% { transform: translateX(0%); }
-        20%, 35% { transform: translateX(-100%); }
-        40%, 55% { transform: translateX(-200%); }
-        60%, 75% { transform: translateX(-300%); }
-        80%, 95% { transform: translateX(-400%); }
-        100% { transform: translateX(0%); }
-      }
-    </style>
-    <section>
-      <h2 style="text-align:center;">Customer Reviews</h2>
+   
+    <section id="reviews">
+      <h2 style="text-align:center;">
+        Customer Reviews
+      </h2>
 
       <div class="grid">
 
-        <div class="card">
-          <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID">
-            ⭐ View Our Google Reviews
+        <div class="card" style="text-align:center;">
+          <h3>⭐ Google Rating: 4.4 / 5</h3>
+          <p>
+            We are grateful for the trust and support of our customers across Adoor and nearby areas.
+          </p>
+          <a class="btn" href="https://maps.app.goo.gl/LL3LqQBpJwzm1pWp7"  target="_blank" rel="noopener noreferrer">
+            ⭐ View Reviews on Google
           </a>
         </div>
+        
       </div>
     </section>
+    
     <section id="map">
       <h2 style="text-align:center;">Find Us</h2>
       <div style="width:90%; margin:auto; background:white; padding:15px; border-radius:15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
@@ -559,6 +566,22 @@
           
       </div>
         
+    </section>
+
+    <section>
+      <div class="card" style="text-align:center;">
+
+        <h2>Happy With Our Service?</h2>
+
+        <p>
+          Your review helps other customers find trusted stove repair and gas pipeline installation services in Adoor.
+        </p>
+
+        <a class="btn"  href="https://maps.app.goo.gl/LL3LqQBpJwzm1pXp7"  target="_blank"  rel="noopener noreferrer">
+          ⭐ Leave a Google Review
+        </a>
+
+      </div>
     </section>
     
     <section id="contact">
